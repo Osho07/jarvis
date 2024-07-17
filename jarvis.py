@@ -7,14 +7,10 @@ import requests
 import spacy
 import subprocess
 
-
-# Load the English NLP model
 nlp = spacy.load("en_core_web_sm")
 
-# Get the OpenWeatherMap API key from an environment variable
 API_KEY = os.getenv("OPENWEATHERMAP_API_KEY")
 
-# Initialize the text-to-speech engine once
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
@@ -91,7 +87,7 @@ def open_gmail():
 
 def open_whatsapp():
     try:
-        subprocess.Popen(["whatsapp"])
+        subprocess.Popen(["WhatsApp"])
         return "Opening WhatsApp."
     except FileNotFoundError:
         return "Sorry, I couldn't find WhatsApp on your system."
@@ -100,11 +96,16 @@ def open_instagram():
     webbrowser.open("https://instagram.com")
     return "Opening Instagram."
 
+def open_youtube():
+    webbrowser.open("https://www.youtube.com")
+    return "Opening Youtube."
+
 def open_chatgpt():
     webbrowser.open("https://chat.openai.com/")
     return "Opening ChatGPT."
 
 def open_leetcode():
+    
     webbrowser.open("https://leetcode.com/")
     return "Opening LeetCode."
 
@@ -145,16 +146,19 @@ def process_command(text):
     if "gmail" in text:
         return open_gmail()
 
-    if "whatsapp" in text:
+    if "whatsapp" in text or "chat" in text:
         return open_whatsapp()
     
     if "instagram" in text:
         return open_instagram()
     
-    if "chatgpt" in text:
+    if "youtube" in text:
+        return open_youtube()
+    
+    if "chatgpt" in text or "AI" in text:
         return open_chatgpt()
     
-    if "leetcode" in text:
+    if "leetcode" in text or "DSA" in text or "coding" in text:
         return open_leetcode()
     
 
