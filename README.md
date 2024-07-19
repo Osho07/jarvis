@@ -19,3 +19,8 @@ Here are some key features of Jarvis:
 I used a combination of speech_recognition, pyttsx3, spacy, and several other Python libraries to bring Jarvis to life. Additionally, I've created an executable file using PyInstaller, making it easy to install and run Jarvis on any Windows PC.
 
 //// INSTALL NECESSARY DEPENDENXIES FROM  by using pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
+python -m spacy download en_core_web_sm
+python.exe -m pip install --upgrade pip
+pip install pyaudio
+pip install speechrecognition pyttsx3 requests spacy
+pip install pyinstaller
